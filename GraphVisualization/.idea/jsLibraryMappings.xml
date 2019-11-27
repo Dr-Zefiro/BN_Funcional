@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$" libraries="{conrad, settings, sigma.canvas.edgehovers.arrow, sigma.canvas.edgehovers.curve, sigma.canvas.edgehovers.curvedArrow, sigma.canvas.edgehovers.def, sigma.canvas.edges.arrow, sigma.canvas.edges.curve, sigma.canvas.edges.curvedArrow, sigma.canvas.edges.def, sigma.canvas.edges.labels.curve, sigma.canvas.edges.labels.curvedArrow, sigma.canvas.edges.labels.def, sigma.canvas.extremities.def, sigma.canvas.hovers.def, sigma.canvas.labels.def, sigma.canvas.nodes.def, sigma.captors.mouse, sigma.captors.touch, sigma.classes.camera, sigma.classes.configurable, sigma.classes.dispatcher, sigma.classes.edgequad, sigma.classes.graph, sigma.classes.quad, sigma.core, sigma.middlewares.copy, sigma.middlewares.rescale, sigma.misc.animation, sigma.misc.bindDOMEvents, sigma.misc.bindEvents, sigma.misc.drawHovers, sigma.polyfills, sigma.renderers.canvas, sigma.renderers.def, sigma.renderers.svg, sigma.renderers.webgl, sigma.settings, sigma.utils, sigma.webgl.edges.arrow, sigma.webgl.edges.def, sigma.webgl.edges.fast, sigma.webgl.nodes.def, sigma.webgl.nodes.fast, supervisor, worker}" />
+  </component>
+</project>

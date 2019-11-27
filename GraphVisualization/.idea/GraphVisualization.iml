@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="sigma.core" level="application" />
+    <orderEntry type="library" name="conrad" level="application" />
+    <orderEntry type="library" name="sigma.utils" level="application" />
+    <orderEntry type="library" name="sigma.polyfills" level="application" />
+    <orderEntry type="library" name="sigma.settings" level="application" />
+    <orderEntry type="library" name="sigma.classes.dispatcher" level="application" />
+    <orderEntry type="library" name="sigma.classes.configurable" level="application" />
+    <orderEntry type="library" name="sigma.classes.graph" level="application" />
+    <orderEntry type="library" name="sigma.classes.camera" level="application" />
+    <orderEntry type="library" name="sigma.classes.quad" level="application" />
+    <orderEntry type="library" name="sigma.classes.edgequad" level="application" />
+    <orderEntry type="library" name="sigma.captors.mouse" level="application" />
+    <orderEntry type="library" name="sigma.captors.touch" level="application" />
+    <orderEntry type="library" name="sigma.renderers.canvas" level="application" />
+    <orderEntry type="library" name="sigma.renderers.webgl" level="application" />
+    <orderEntry type="library" name="sigma.renderers.svg" level="application" />
+    <orderEntry type="library" name="sigma.renderers.def" level="application" />
+    <orderEntry type="library" name="sigma.canvas.labels.def" level="application" />
+    <orderEntry type="library" name="sigma.canvas.hovers.def" level="application" />
+    <orderEntry type="library" name="sigma.canvas.nodes.def" level="application" />
+    <orderEntry type="library" name="sigma.canvas.edges.def" level="application" />
+    <orderEntry type="library" name="sigma.canvas.edges.curve" level="application" />
+    <orderEntry type="library" name="sigma.canvas.edges.arrow" level="application" />
+    <orderEntry type="library" name="sigma.canvas.edges.curvedArrow" level="application" />
+    <orderEntry type="library" name="sigma.canvas.edgehovers.def" level="application" />
+    <orderEntry type="library" name="sigma.canvas.edgehovers.curve" level="application" />
+    <orderEntry type="library" name="sigma.canvas.edgehovers.arrow" level="application" />
+    <orderEntry type="library" name="sigma.canvas.edgehovers.curvedArrow" level="application" />
+    <orderEntry type="library" name="sigma.canvas.extremities.def" level="application" />
+    <orderEntry type="library" name="sigma.webgl.nodes.def" level="application" />
+    <orderEntry type="library" name="sigma.webgl.nodes.fast" level="application" />
+    <orderEntry type="library" name="sigma.webgl.edges.def" level="application" />
+    <orderEntry type="library" name="sigma.webgl.edges.fast" level="application" />
+    <orderEntry type="library" name="sigma.webgl.edges.arrow" level="application" />
+    <orderEntry type="library" name="sigma.middlewares.rescale" level="application" />
+    <orderEntry type="library" name="sigma.middlewares.copy" level="application" />
+    <orderEntry type="library" name="sigma.misc.animation" level="application" />
+    <orderEntry type="library" name="sigma.misc.bindEvents" level="application" />
+    <orderEntry type="library" name="sigma.misc.bindDOMEvents" level="application" />
+    <orderEntry type="library" name="sigma.misc.drawHovers" level="application" />
+    <orderEntry type="library" name="supervisor" level="application" />
+    <orderEntry type="library" name="worker" level="application" />
+    <orderEntry type="library" name="settings" level="application" />
+    <orderEntry type="library" name="sigma.canvas.edges.labels.def" level="application" />
+    <orderEntry type="library" name="sigma.canvas.edges.labels.curve" level="application" />
+    <orderEntry type="library" name="sigma.canvas.edges.labels.curvedArrow" level="application" />
+  </component>
+</module>

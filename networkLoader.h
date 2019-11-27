@@ -46,6 +46,8 @@ struct RawNode {
     S::vector<float> cpt;
     S::vector<float> cumulativeCpt;
 
+    size_t depth = 0;
+
     explicit RawNode(T::XMLElement *node) :
             id(getAttrId(node)),
             cpt(map(B::lexical_cast<float, S::string>, getToken("probabilities", node))),
@@ -70,9 +72,29 @@ void setParents(S::vector<RawNode *> &nodes) {
         n->parents = map([&nodeMap](const auto p) { return nodeMap.find(p)->second; }, n->parentIds);
 }
 
-auto setLayers(S::vector<RawNode *> &nodes) {
-    auto incomingEdgesCount = map([](auto const n) { return n->parents.size(); }, nodes);
-    S::queue<RawNode *> q;
+void setMaxDepth(const S::vector<RawNode *>& roots,
+                 const S::map<RawNode *, S::vector<RawNode *>> &adjacencyMap,
+                 const size_t depth = 0) {
+    assert(adjacencyMap.size() >= depth);
+    for (const auto root : roots) {
+        root->depth = S::max(depth, root->depth);
+        const auto edges = adjacencyMap.find(root);
+        if (edges == adjacencyMap.end()) continue;
+        setMaxDepth(edges->second, adjacencyMap, depth + 1);
+    }
+}
+
+auto setLayers(const S::vector<RawNode *> &nodes) {
+    S::vector<S::pair<RawNode *, RawNode *>> edges{};
+    for (const auto node : nodes)
+        for (const auto parent : node->parents)
+            edges.emplace_back(S::make_pair(parent, node));
+
+    S::map<RawNode *, S::vector<RawNode *>> adjacencyMap{};
+    for (const auto edge : edges) adjacencyMap[edge.first].push_back(edge.second);
+
+    const auto roots = filter([](const auto node){return node->parents.empty();}, nodes);
+    setMaxDepth(roots, adjacencyMap);
 }
 
 void importBN(const S::string &name) {

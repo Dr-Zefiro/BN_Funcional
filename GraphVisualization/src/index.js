@@ -1,6 +1,5 @@
 'use strict';
 (() => {
-
     const s = new sigma({
         renderer: {
             container: document.getElementById('sigma-container'),
@@ -14,7 +13,7 @@
         }
     });
 
-    const NODE_AMOUNT = 20;
+    const NODE_AMOUNT = 150;
 
     const getRoots = (nodes, edges) => {
         const descendentsSet = new Set(R.pluck("target", edges));
@@ -63,14 +62,14 @@
     const roots = getRoots(bigNodes, bigEdges);
     setMaxDepth(roots, nodeLookup, adjacencyMap);
 
-    const maxDepth = R.pipe(R.pluck("depth"), R.reduce(R.max, 0))(bigNodes);
+    const maxDepth = R.pipe(R.values, R.map(v => v.length), R.reduce(R.max, 0))(adjacencyMap);
+    const maxWidth = R.pipe(R.pluck("depth"), R.reduce(R.max, 0))(bigNodes);
     const levels = R.groupBy(R.prop("depth"), bigNodes);
 
     for (const n of bigNodes){
-        n.y = 1.0 / (levels[n.depth].findIndex(R.propEq("id", n.id)) + 1);
+        n.y = (levels[n.depth].findIndex(R.propEq("id", n.id)) + 1) / maxWidth;
         n.x = n.depth / maxDepth;
     }
-
 
     console.log({maxDepth});
     console.log(roots);
