@@ -23,10 +23,17 @@
 # Compiled Static libraries
 *.lai
 *.la
-*.a
 *.lib
 
 # Executables
 *.exe
 *.out
 *.app
+
+# Folders
+cmake-build-debug
+lib/*
+
+# Smile lib
+!lib/smile
+!lib/smile_license.h
