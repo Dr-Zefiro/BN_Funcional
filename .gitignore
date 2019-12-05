@@ -33,6 +33,7 @@
 # Folders
 cmake-build-debug
 lib/*
+.idea
 
 # Smile lib
 !lib/smile
