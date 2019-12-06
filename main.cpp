@@ -2,6 +2,6 @@
 #include "networkLoader.h"
 
 int main(int argc, char *argv[]){
-    importBN(argv[1]);
+    BN_Network(std::string(argv[1]));
     return 0;
 }
