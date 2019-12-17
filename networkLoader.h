@@ -10,6 +10,7 @@
 #include <random>
 
 #include "functional_helpers.hpp"
+#include "MCIntegrator.h"
 #include "tinyxml2/tinyxml2.h"
 #include "boost/lexical_cast.hpp"
 #include "boost/range/algorithm/transform.hpp"
@@ -79,8 +80,10 @@ struct BN_Network {
     }
 
     void setCumulativeCPTs() {
-        for (const auto n : nodes)
-            n->cumulativeCpt = CumulativeCpt(n->cpt, map([](auto p) { return p->stateIds.size(); }, n->parents));
+        for (const auto n : nodes) {
+            const auto radix = map([](auto p) { return p->stateIds.size(); }, n->parents);
+            n->cumulativeCpt = CumulativeCpt(n->cpt, radix);
+        }
     }
 
     void setParents() {
@@ -111,41 +114,20 @@ struct BN_Network {
         assert(adjacencyMap.size() >= depth);
         for (const auto root : roots) {
             root->depth = S::max(depth, root->depth);
-            const auto edges{adjacencyMap.find(root)};
-            if (edges == adjacencyMap.end()) continue;
-            setMaxDepth(edges->second, adjacencyMap, depth + 1);
+            if (const auto edges{adjacencyMap.find(root)}; edges != adjacencyMap.end())
+                setMaxDepth(edges->second, adjacencyMap, depth + 1);
         }
     }
 
-    [[nodiscard]] auto sample() const {
+    void sample(S::vector<size_t> inputSample, S::vector<size_t> nodeStates) const {
         std::random_device rd;
         std::uniform_real_distribution<> dist{0.0, 1.0};
 
-        auto nodeStates = S::vector<size_t>(nodes.size());
         auto nodeIterator = nodeStates.begin();
+        auto inputSampleIterator = inputSample.begin();
         const auto getPStates = [&](const auto p) { return nodeStates.at(p - nodes[0]); };
 
         for (const auto n : nodes)
-            *nodeIterator++ = n->cumulativeCpt.getState(map(getPStates, n->parents), dist(rd));
-
-        return nodeStates;
+            *nodeIterator++ = n->cumulativeCpt.getState(map(getPStates, n->parents), *inputSampleIterator++);
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

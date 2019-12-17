@@ -29,8 +29,6 @@ const auto getToken = [](const char *field, T::XMLElement *node, bool nullable =
 auto toVector(T::XMLElement *rootElement, const char *name = nullptr) {
     S::vector<T::XMLElement *> elements{};
     for (auto el{rootElement->FirstChildElement(name)}; el; el = el->NextSiblingElement(name))
-
-
         elements.emplace_back(el);
     return elements;
 }

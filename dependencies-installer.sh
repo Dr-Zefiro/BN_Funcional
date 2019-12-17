@@ -12,3 +12,6 @@ cd ..
 
 #### TINYXML2 ####
 git clone https://github.com/leethomason/tinyxml2.git
+
+#### PCG-CPP ####
+git clone https://github.com/imneme/pcg-cpp.git
