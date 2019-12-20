@@ -6,8 +6,6 @@
 #include <thread>
 
 #include "pcg-cpp/include/pcg_random.hpp"
-#include "pcg-cpp/include/pcg_extras.hpp"
-#include "pcg-cpp/include/pcg_uint128.hpp"
 #include "functional_helpers.hpp"
 
 namespace S = std;
@@ -22,6 +20,8 @@ typedef void GENERATOR(const S::vector<float> &, S::vector<float> &);
 struct Sampler {
     pcg32 rng{pcg_extras::seed_seq_from<std::random_device>{} };
     S::uniform_real_distribution<> dist{0.0, 1.0};
+
+    inline float next() { return dist(rng); }
 
     inline void fill(S::vector<float> &s) { for(auto& el : s) el = dist(rng); }
 };
