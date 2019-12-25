@@ -93,14 +93,16 @@ struct Timer {
     }
 
     auto getLap() {
-        auto stop = std::chrono::high_resolution_clock::now();
-        auto duration = duration_cast<std::chrono::milliseconds>(stop - start);
-        start = std::chrono::high_resolution_clock::now();
+        using namespace std::chrono;
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<milliseconds>(stop - start);
+        start = high_resolution_clock::now();
         std::cout << duration.count() << "[ms]\n";
         return duration.count();
     }
 
     auto reset() {
-        start = std::chrono::high_resolution_clock::now();
+        using namespace std::chrono;
+        start = high_resolution_clock::now();
     }
 };
